@@ -15,7 +15,6 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
-import cn.cornflower.com.huan.MainActivity;
 import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.view.ClearEditText;
 
