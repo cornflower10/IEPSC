@@ -1,4 +1,4 @@
-package cn.cornflower.com.huan.APP;
+package cn.cornflower.com.huan.app;
 
 import android.app.Application;
 
