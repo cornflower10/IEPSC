@@ -1,13 +1,17 @@
 package cn.cornflower.com.huan.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +28,7 @@ public class MainActivity extends BaseActivity {
     GridView gv;
     private GridAadapter gridAdapter;
     private List<MainGridItem> list;
+    private long mkeyTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class MainActivity extends BaseActivity {
         ButterKnife.inject(this);
         setToolbar();
         initData();
+        initListener();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,15 +48,17 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+
+
     private void initData() {
-        list =new ArrayList<>();
-        for (int i =0;i<3;i++){
-            MainGridItem ma =new MainGridItem();
-            ma.setName("派送"+i);
-            ma.setResouce(R.mipmap.ic_clear);
+        list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            MainGridItem ma = new MainGridItem();
+            ma.setName("派送" + i);
+            ma.setResouce(getResources().getDrawable(R.mipmap.ic_launcher));
             list.add(ma);
         }
-        gridAdapter =new GridAadapter(this,list);
+        gridAdapter = new GridAadapter(this, list);
         gv.setAdapter(gridAdapter);
     }
 
@@ -60,6 +68,16 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
     }
 
+    private void initListener() {
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent in =new Intent(MainActivity.this,PeopleActivity.class);
+                startActivity(in);
+
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,6 +98,25 @@ public class MainActivity extends BaseActivity {
             return true;
         }
 
+        if (id == R.id.action_my) {
+            Intent intent = new Intent(MainActivity.this, MyActivity.class);
+            startActivity(intent);
+
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mkeyTime) > 2000) {
+                mkeyTime = System.currentTimeMillis();
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
+            } else {
+                finish();
+            }
+            return true; }
+            return super.onKeyDown(keyCode, event);
+
     }
 }

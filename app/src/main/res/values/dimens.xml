@@ -6,8 +6,14 @@
 
 
     <dimen name="height_72">72dp</dimen>
+    <dimen name="height_144">144dp</dimen>
+
     <dimen name="height_56">56dp</dimen>
+    <dimen name="height_48">48dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+
 
     <dimen name="size_16">16sp</dimen>
+    <dimen name="size_14">14sp</dimen>
 
 </resources>

@@ -53,19 +53,16 @@
         android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
 
 </android.support.design.widget.TextInputLayout>
-<!--<RelativeLayout-->
-    <!--android:layout_marginTop="@dimen/activity_vertical_margin"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-    <!--<android.support.v7.widget.AppCompatCheckBox-->
-        <!--android:id="@+id/cb"-->
-        <!--style="@style/marginhorizontal"-->
-        <!--android:clickable="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:text="@string/rememberPasswd"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" />-->
-<!--</RelativeLayout>-->
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_marginTop="@dimen/padding_8"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:textColor="@color/green"
+        android:textSize="@dimen/size_14"
+        android:id="@+id/tv_forget_passwd"
+        android:text="@string/forget_passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.AppCompatButton
         android:gravity="center"

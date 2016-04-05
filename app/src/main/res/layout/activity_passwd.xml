@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.cornflower.com.huan.ui.activity.PasswdActivity">
+      <include layout="@layout/toolbar_"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_72"
+        >
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_old_passwd"
+            android:inputType="textPassword"
+            android:hint="@string/old_passwd"
+            android:maxLength="15"
+            android:textSize="@dimen/size_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_72"
+        >
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:textSize="@dimen/size_16"
+            android:id="@+id/et_new_passwd"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:hint="@string/new_passwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:gravity="center"
+        android:background="@color/green"
+        android:textSize="@dimen/size_16"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:id="@+id/btn_sure"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/sure"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56" />
+</LinearLayout>

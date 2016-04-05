@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="cn.cornflower.com.huan.ui.activity.MyActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <include layout="@layout/toolbar"/>
+
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
+        android:background="@color/colorAccent"
+        android:id="@+id/rl_my"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_144">
+        <android.support.v7.widget.AppCompatTextView
+            android:textSize="@dimen/size_16"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="手机号码"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@drawable/bg_press"
+        android:id="@+id/rl_passwd"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56">
+        <android.support.v7.widget.AppCompatTextView
+            android:textSize="@dimen/size_16"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="修改密码"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/line_margin_v"
+           />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="0.5dp"
+        android:background="@drawable/bg_press"
+        android:id="@+id/rl_about"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56">
+        <android.support.v7.widget.AppCompatTextView
+            android:textSize="@dimen/size_16"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="关于"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/line_fill_v"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/bg_press"
+        android:id="@+id/rl_logout"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56">
+        <View
+            android:layout_alignParentTop="true"
+            style="@style/line_fill_v"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:textSize="@dimen/size_16"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="退出登录"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp" />
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/line_fill_v"
+            />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,12 +1,14 @@
 package cn.cornflower.com.huan.entity;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by Administrator on 2016/4/1.
  */
 public class MainGridItem {
 
     private int type;
-    private int resouce;
+    private Drawable resouce;
     private String name;
 
     public int getType() {
@@ -17,11 +19,11 @@ public class MainGridItem {
         this.type = type;
     }
 
-    public int getResouce() {
+    public Drawable getResouce() {
         return resouce;
     }
 
-    public void setResouce(int resouce) {
+    public void setResouce(Drawable resouce) {
         this.resouce = resouce;
     }
 

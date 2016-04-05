@@ -7,7 +7,21 @@
 
     <string name="phone">手机号码</string>
     <string name="passwd">密码</string>
+    <string name="old_passwd">旧密码</string>
+    <string name="new_passwd">新密码</string>
+    <string name="sure">确 定</string>
+    <string name="code">验证码</string>
+    <string name="forget_passwd">忘记密码?</string>
+    <string name="setting_passwd">设置密码</string>
 
 
     <string name="main">主页</string>
+    <string name="my">我的</string>
+
+
+    <string name="booking_decalaraion">预约申报</string>
+    <string name="commit_online">在线提交</string>
+    <string name="choose_people">选人</string>
+
+    <string name="about">关于</string>
 </resources>

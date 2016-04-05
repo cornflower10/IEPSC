@@ -55,10 +55,8 @@ public class GridAadapter extends BaseAdapter {
 
         }else
         viewHolder =(ViewHolder) view.getTag();
-
-        viewHolder.iv.setImageResource(gridItemList.get(i).getResouce());
         viewHolder.tvTitle.setText(gridItemList.get(i).getName());
-
+        viewHolder.iv.setBackgroundDrawable(gridItemList.get(i).getResouce());
         return view;
     }
 

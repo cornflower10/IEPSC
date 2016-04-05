@@ -12,7 +12,13 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+
+    </style>
+    <!-- toolbar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
 
 
     <style name="marginleft_right" >
@@ -30,8 +36,15 @@
     </style>
 
     <style name="line_fill_v">
+        <item name="android:background">@color/line</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+    <style name="line_margin_v">
+        <item name="android:layout_marginLeft">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@color/line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
     </style>
     <style name="line_fill_h">
         <item name="android:layout_width">1dp</item>

@@ -27,6 +27,7 @@ public class LoginActivity extends BaseActivity {
     @InjectView(R.id.btn_login)
     AppCompatButton btnLogin;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    private  void setToolbar(){
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getResources().getString(R.string.login));
         setSupportActionBar(toolbar);
@@ -62,7 +63,6 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-
     protected void setListener() {
         etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -77,7 +77,7 @@ public class LoginActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if ((!TextUtils.isEmpty(editable.toString())) && (!TextUtils.isEmpty(etPasswd.getText()))){
+                if ((!TextUtils.isEmpty(editable.toString())) && (!TextUtils.isEmpty(etPasswd.getText()))) {
                     canClick();
                 } else
                     unClick();
@@ -88,8 +88,8 @@ public class LoginActivity extends BaseActivity {
         etName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(etName.getText().toString().trim().length()<15){
+                if (!hasFocus) {
+                    if (etName.getText().toString().trim().length() < 15) {
                         etName.setError("手机号码有误");
                     }
                 }
@@ -125,7 +125,6 @@ public class LoginActivity extends BaseActivity {
 //                PreferencesUtils.putSharePre(LoginActivity.this, Constants.REMEMBER_PASSWD, b);
 //            }
 //        });
-
 
 
     }
@@ -196,13 +195,15 @@ public class LoginActivity extends BaseActivity {
     }
 
 
-    /**
-     * 登陆
-     */
-    @OnClick(R.id.btn_login)
-    public void onClick() {
-        Intent intent =new Intent(this, MainActivity.class);
-        startActivity(intent);
-
+    @OnClick({R.id.tv_forget_passwd, R.id.btn_login})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_forget_passwd:
+                Intent intent =new Intent(LoginActivity.this,ForgetPasswdActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_login:
+                break;
+        }
     }
 }
