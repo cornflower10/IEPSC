@@ -1,24 +1,31 @@
 package cn.cornflower.com.huan.ui.activity.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
+import cn.cornflower.com.huan.adapter.TaskAdapter;
 
 /**
  * Created by Administrator on 2016/4/5.
  */
-public class finshTaskFragment extends Fragment {
+public class FinshTaskFragment extends Fragment {
     @InjectView(R.id.lv_task)
     ListView lvTask;
+    private List<String> list;
+//   public FinshTaskFragment (String type,){
+//
+//   }
 
     @Nullable
     @Override
@@ -31,7 +38,17 @@ public class finshTaskFragment extends Fragment {
 
             }
         });
+        initData();
         return view;
+    }
+
+    private void initData() {
+
+        for (int i=0;i<10;i++){
+            list.add(i+"");
+        }
+
+        lvTask.setAdapter(new TaskAdapter(getActivity(),list));
     }
 
     @Override
