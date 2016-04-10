@@ -37,13 +37,23 @@
         <activity
             android:name=".ui.activity.AboutActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.BookDeclarationActivity" />
+        <activity android:name=".ui.activity.BookDeclarationActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ui.activity.PeopleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.PasswdActivity" />
-        <activity android:name=".ui.activity.ForgetPasswdActivity" />
-        <activity android:name=".ui.activity.TaskActivity"></activity>
+        <activity
+            android:name=".ui.activity.PasswdActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.ForgetPasswdActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.TaskActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.QueryActivity"
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
     </application>
 
 </manifest>

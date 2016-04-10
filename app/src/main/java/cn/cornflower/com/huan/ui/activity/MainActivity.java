@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,10 +53,32 @@ public class MainActivity extends BaseActivity {
 
     private void initData() {
         list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 5; i++) {
             MainGridItem ma = new MainGridItem();
-            ma.setName("派送" + i);
-            ma.setResouce(getResources().getDrawable(R.mipmap.ic_launcher));
+            switch (i){
+                case 1:
+                    ma.setType(1);
+                    ma.setName(getResources().getString(R.string.booking_decalaraion));
+                    ma.setResouce(getResources().getDrawable(R.drawable.ic_apply_black_24dp));
+                    break;
+                case 2:
+                    ma.setType(2);
+                    ma.setName(getResources().getString(R.string.search));
+                    ma.setResouce(getResources().getDrawable(R.drawable.ic_search_black_24dp));
+                    break;
+                case 3:
+                    ma.setType(3);
+                    ma.setName(getResources().getString(R.string.task_send));
+                    ma.setResouce(getResources().getDrawable(R.drawable.ic_send_black_24dp));
+                    break;
+                case 4:
+                    ma.setType(3);
+                    ma.setName(getResources().getString(R.string.task_my));
+                    ma.setResouce(getResources().getDrawable(R.drawable.ic_local_taxi_black_24dp));
+                    break;
+                default:
+                    break;
+            }
             list.add(ma);
         }
         gridAdapter = new GridAadapter(this, list);
@@ -72,7 +95,25 @@ public class MainActivity extends BaseActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent in =new Intent(MainActivity.this,PeopleActivity.class);
+              int type =  list.get(i).getType();
+                Intent in =new Intent();
+
+                switch (type) {
+                    case 1:
+                        in.setClass(MainActivity.this,BookDeclarationActivity.class);
+                        break;
+                    case 2:
+                        in.setClass(MainActivity.this,QueryActivity.class);
+                        break;
+                    case 3:
+                        in.setClass(MainActivity.this,PeopleActivity.class);
+                        break;
+                    case 4:
+                        in.setClass(MainActivity.this,TaskActivity.class);
+                        break;
+                    default:
+                        break;
+                }
                 startActivity(in);
 
             }

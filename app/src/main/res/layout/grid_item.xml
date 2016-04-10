@@ -11,16 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <ImageView
+        android:layout_marginTop="@dimen/padding_8"
         android:id="@+id/iv"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ic_launcher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <android.support.v7.widget.AppCompatTextView
-        android:layout_marginTop="4dp"
-        android:paddingBottom="4dp"
+        android:layout_marginTop="@dimen/padding_8"
+        android:paddingBottom="@dimen/padding_8"
         android:id="@+id/tv_title"
-        android:textSize="@dimen/size_16"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/iv"
         android:text="1233"
@@ -28,4 +27,5 @@
         android:layout_height="wrap_content" />
 
     </RelativeLayout>
+
 </RelativeLayout>
