@@ -20,7 +20,6 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
         ButterKnife.inject(this);
         setToolbar();
-
     }
 
     private void setToolbar() {
