@@ -63,6 +63,7 @@ public class GridAadapter extends BaseAdapter {
       Drawable drawable = gridItemList.get(i).getResouce();
         viewHolder.iv.setImageDrawable(drawable);
         viewHolder.iv.setColorFilter(context.getResources().getColor(R.color.green));
+
         return view;
     }
 
