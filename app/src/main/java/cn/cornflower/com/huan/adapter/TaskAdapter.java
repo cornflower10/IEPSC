@@ -14,16 +14,17 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.entity.MainGridItem;
+import cn.cornflower.com.huan.entity.Task;
 
 /**
  * Created by Administrator on 2016/4/1.
  */
 public class TaskAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
-    private List<String> gridItemList;
+    private List<Task> gridItemList;
     private Context context;
 
-    public TaskAdapter(Context context, List<String> gridItemList) {
+    public TaskAdapter(Context context, List<Task> gridItemList) {
         this.context = context;
         this.gridItemList = gridItemList;
         layoutInflater = LayoutInflater.from(context);
@@ -46,7 +47,7 @@ public class TaskAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder =null;
+        ViewHolder viewHolder = null;
 
         if (view == null) {
             view = layoutInflater.inflate(R.layout.task_item, viewGroup, false);
@@ -55,7 +56,7 @@ public class TaskAdapter extends BaseAdapter {
 
         }else
         viewHolder =(ViewHolder) view.getTag();
-        viewHolder.tvTitle.setText(gridItemList.get(i));
+        viewHolder.tvTitle.setText(gridItemList.get(i).getTitle());
 
         return view;
     }
