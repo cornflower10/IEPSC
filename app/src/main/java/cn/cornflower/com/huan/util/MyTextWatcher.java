@@ -12,6 +12,7 @@ public class MyTextWatcher implements TextWatcher {
 
     }
 
+
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
