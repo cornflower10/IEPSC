@@ -1,6 +1,7 @@
 package cn.cornflower.com.huan.ui.activity;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +15,8 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.adapter.FragmentTaskAdatpter;
+import cn.cornflower.com.huan.common.Constants;
+import cn.cornflower.com.huan.entity.Task;
 import cn.cornflower.com.huan.ui.activity.fragment.FinshTaskFragment;
 
 public class TaskActivity extends BaseActivity {
@@ -23,6 +26,7 @@ public class TaskActivity extends BaseActivity {
     @InjectView(R.id.vp)
     ViewPager vp;
     private FragmentTaskAdatpter fragmentAdapter;
+    private Task task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +38,17 @@ public class TaskActivity extends BaseActivity {
 
     private void initData() {
 
+
         List<Fragment> lf = new ArrayList<>();
+
         for (int i = 0; i<2 ;i++){
             FinshTaskFragment finshTaskFragment = new FinshTaskFragment();
+
+            Bundle bundle =new Bundle();
+
+            List<Task> taskList =new ArrayList<>();
+            bundle.putParcelableArrayList(Constants.TASKLIST, (ArrayList<? extends Parcelable>) taskList);
+            finshTaskFragment.setArguments(bundle);
             lf.add(finshTaskFragment);
 
         }
