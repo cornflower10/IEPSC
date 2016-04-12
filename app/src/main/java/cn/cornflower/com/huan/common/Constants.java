@@ -17,4 +17,7 @@ public class Constants {
     public static final String  REMEMBER_PASSWD = "rememberPasswd";
     public static final String  NAME = "name";
     public static final String  PASSWD = "passwd";
+
+
+    public static final String  TASKLIST = "taskList";
 }

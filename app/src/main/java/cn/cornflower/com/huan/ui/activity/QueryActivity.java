@@ -4,15 +4,22 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
+import cn.cornflower.com.huan.adapter.StickyListViewAdapter;
+import cn.cornflower.com.huan.view.stickylistheaders.ExpandableStickyListHeadersListView;
+import cn.cornflower.com.huan.view.stickylistheaders.StickyListHeadersAdapter;
+import cn.cornflower.com.huan.view.stickylistheaders.StickyListHeadersListView;
 
 public class QueryActivity extends BaseActivity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
+    @InjectView(R.id.stickyListView)
+    ExpandableStickyListHeadersListView stickyListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,24 @@ public class QueryActivity extends BaseActivity {
         ButterKnife.inject(this);
 
         setToolbar();
+        initData();
+
+    }
+
+    private void initData() {
+        StickyListHeadersAdapter adapter = new StickyListViewAdapter(this);
+        stickyListView.setAdapter(adapter);
+        stickyListView.setOnHeaderClickListener(new StickyListHeadersListView.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick(StickyListHeadersListView l, View header, int itemPosition, long headerId, boolean currentlySticky) {
+                if(stickyListView.isHeaderCollapsed(headerId)){
+
+                    stickyListView.expand(headerId);
+                }else {
+                    stickyListView.collapse(headerId);
+                }
+            }
+        });
     }
 
     private void setToolbar() {
