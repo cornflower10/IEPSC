@@ -35,6 +35,7 @@ public class TaskActivity extends BaseActivity {
          initData();
     }
 
+    @SuppressWarnings("WrongConstant")
     private void initData() {
 
 
@@ -42,19 +43,29 @@ public class TaskActivity extends BaseActivity {
 
         for (int i = 0; i<2 ;i++){
             FinshTaskFragment finshTaskFragment = new FinshTaskFragment();
-
             Bundle bundle =new Bundle();
-
             List<Task> taskList =new ArrayList<>();
+            for (int j = 0; j<9 ;j++){
+                Task task = new Task();
+                task.setDateTime("2016-04-12 14:2"+j);
+                task.setArriveTime("3"+j);
+                task.setTitle("昆山市花桥镇"+j);
+                task.setContext("昆山市花桥镇XXXX餐厅需要服务XXXXX请尽快处理"+j);
+                taskList.add(task);
+            }
             bundle.putParcelableArrayList(Constants.TASKLIST, (ArrayList<? extends Parcelable>) taskList);
             finshTaskFragment.setArguments(bundle);
             lf.add(finshTaskFragment);
 
         }
+        List<String> listTitle = new ArrayList<>();
+        listTitle.add("未完成");
+        listTitle.add("已完成");
 
-        tb.addTab(tb.newTab().setText("未完成"));
-        tb.addTab(tb.newTab().setText("已完成"));
-        fragmentAdapter  = new FragmentTaskAdatpter(getSupportFragmentManager(),lf);
+        tb.setTabMode(TabLayout.MODE_FIXED);
+        tb.addTab(tb.newTab().setText(listTitle.get(0)));
+        tb.addTab(tb.newTab().setText(listTitle.get(1)));
+        fragmentAdapter  = new FragmentTaskAdatpter(getSupportFragmentManager(),lf,listTitle);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

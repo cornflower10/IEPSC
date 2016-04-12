@@ -13,9 +13,13 @@ import java.util.List;
  */
 public class FragmentTaskAdatpter extends FragmentStatePagerAdapter {
     private List<Fragment> fragmentList ;
-    public FragmentTaskAdatpter(FragmentManager fm,List<Fragment> fragmentList ) {
+    private List<String> llistTitle;
+    public FragmentTaskAdatpter(FragmentManager fm,
+                                List<Fragment> fragmentList,
+                                List<String> llistTitle ) {
         super(fm);
         this.fragmentList = fragmentList;
+        this.llistTitle = llistTitle;
 
     }
 
@@ -28,5 +32,11 @@ public class FragmentTaskAdatpter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return fragmentList.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        return llistTitle.get(position);
     }
 }

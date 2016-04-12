@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity {
                     ma.setResouce(getResources().getDrawable(R.drawable.ic_send_black_24dp));
                     break;
                 case 4:
-                    ma.setType(3);
+                    ma.setType(4);
                     ma.setName(getResources().getString(R.string.task_my));
                     ma.setResouce(getResources().getDrawable(R.drawable.ic_local_taxi_black_24dp));
                     break;

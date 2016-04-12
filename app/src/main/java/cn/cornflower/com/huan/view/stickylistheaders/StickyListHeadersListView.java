@@ -25,7 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 
-import se.emilsjolander.stickylistheaders.WrapperViewList.LifeCycleListener;
+import cn.cornflower.com.huan.R;
 
 /**
  * Even though this is a FrameLayout subclass we still consider it a ListView.
@@ -35,6 +35,7 @@ import se.emilsjolander.stickylistheaders.WrapperViewList.LifeCycleListener;
  *
  * @author Emil Sjölander
  */
+@SuppressWarnings("WrongConstant")
 public class StickyListHeadersListView extends FrameLayout {
 
     public interface OnHeaderClickListener {
@@ -224,7 +225,7 @@ public class StickyListHeadersListView extends FrameLayout {
         }
 
         // attach some listeners to the wrapped list
-        mList.setLifeCycleListener(new WrapperViewListLifeCycleListener());
+        mList.setLifeCycleListener((WrapperViewList.LifeCycleListener) new WrapperViewListLifeCycleListener());
         mList.setOnScrollListener(new WrapperListScrollListener());
 
         addView(mList);
@@ -522,7 +523,7 @@ public class StickyListHeadersListView extends FrameLayout {
 
     }
 
-    private class WrapperViewListLifeCycleListener implements LifeCycleListener {
+    private class WrapperViewListLifeCycleListener implements WrapperViewList.LifeCycleListener {
 
         @Override
         public void onDispatchDrawOccurred(Canvas canvas) {

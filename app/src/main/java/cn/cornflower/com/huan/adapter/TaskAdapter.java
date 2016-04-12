@@ -1,19 +1,17 @@
 package cn.cornflower.com.huan.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
-import cn.cornflower.com.huan.entity.MainGridItem;
 import cn.cornflower.com.huan.entity.Task;
 
 /**
@@ -51,19 +49,29 @@ public class TaskAdapter extends BaseAdapter {
 
         if (view == null) {
             view = layoutInflater.inflate(R.layout.task_item, viewGroup, false);
-            viewHolder= new ViewHolder(view);
+            viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
 
-        }else
-        viewHolder =(ViewHolder) view.getTag();
+        } else
+            viewHolder = (ViewHolder) view.getTag();
+        viewHolder.tvTime.setText(gridItemList.get(i).getDateTime());
+        viewHolder.tvArriveTime.setText(gridItemList.get(i).getArriveTime());
         viewHolder.tvTitle.setText(gridItemList.get(i).getTitle());
+        viewHolder.tvContext.setText(gridItemList.get(i).getContext());
 
         return view;
     }
 
+
     static class ViewHolder {
+        @InjectView(R.id.tv_time)
+        TextView tvTime;
+        @InjectView(R.id.tv_arriveTime)
+        TextView tvArriveTime;
         @InjectView(R.id.tv_title)
-        AppCompatTextView tvTitle;
+        TextView tvTitle;
+        @InjectView(R.id.tv_context)
+        TextView tvContext;
 
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
