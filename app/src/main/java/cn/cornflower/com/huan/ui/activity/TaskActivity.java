@@ -20,7 +20,6 @@ import cn.cornflower.com.huan.entity.Task;
 import cn.cornflower.com.huan.ui.activity.fragment.FinshTaskFragment;
 
 public class TaskActivity extends BaseActivity {
-
     @InjectView(R.id.tb)
     TabLayout tb;
     @InjectView(R.id.vp)
