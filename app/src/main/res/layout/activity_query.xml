@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cn.cornflower.com.huan.ui.activity.QueryActivity">
     <include layout="@layout/toolbar_"/>
-</RelativeLayout>
+
+    <cn.cornflower.com.huan.view.stickylistheaders.ExpandableStickyListHeadersListView
+        android:id="@+id/stickyListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
