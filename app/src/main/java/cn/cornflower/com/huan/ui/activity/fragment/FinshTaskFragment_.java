@@ -14,15 +14,15 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
-import cn.cornflower.com.huan.adapter.TaskAdapter;
+import cn.cornflower.com.huan.entity.Task;
 
 /**
  * Created by Administrator on 2016/4/5.
  */
-public class FinshTaskFragment extends Fragment {
+public class FinshTaskFragment_ extends Fragment {
     @InjectView(R.id.lv_task)
     ListView lvTask;
-    private List<String> list;
+    private List<Task> list;
 //   public FinshTaskFragment (String type,){
 //
 //   }
@@ -43,12 +43,8 @@ public class FinshTaskFragment extends Fragment {
     }
 
     private void initData() {
-
-        for (int i=0;i<10;i++){
-            list.add(i+"");
-        }
-
-        lvTask.setAdapter(new TaskAdapter(getActivity(),list));
+        
+//        lvTask.setAdapter(new TaskAdapter(getActivity(),list));
     }
 
     @Override
