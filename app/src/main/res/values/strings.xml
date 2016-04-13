@@ -26,4 +26,7 @@
     <string name="task_send">任务派发</string>
     <string name="task_my">我的任务</string>
     <string name="about">关于</string>
+
+    <string name="amount">桶数</string>
+    <string name="title_activity_commit_application">CommitApplicationActivity</string>
 </resources>

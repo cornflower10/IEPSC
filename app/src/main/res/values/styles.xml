@@ -7,12 +7,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
 
     </style>
     <!-- toolbar菜单样式 -->
@@ -21,14 +24,16 @@
     </style>
 
 
-    <style name="marginleft_right" >
+    <style name="marginleft_right">
         <item name="android:layout_marginRight">@dimen/activity_vertical_margin</item>
         <item name="android:layout_marginLeft">@dimen/activity_vertical_margin</item>
     </style>
-    <style name="marginTop_bottom" >
+
+    <style name="marginTop_bottom">
         <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
         <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
     </style>
+
     <style name="wrap_wrap">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -44,12 +49,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
     </style>
+
     <style name="line_margin_v">
         <item name="android:layout_marginLeft">@dimen/activity_vertical_margin</item>
         <item name="android:background">@color/line</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
     </style>
+
     <style name="line_fill_h">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>

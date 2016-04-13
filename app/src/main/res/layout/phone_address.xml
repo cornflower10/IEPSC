@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_144"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    tools:context="cn.cornflower.com.huan.ui.activity.MyActivity">
+    <RelativeLayout
+       style="@style/marginleft_right"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@color/colorAccent"
+        android:id="@+id/rl_my"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:src="@drawable/ic_call_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.AppCompatTextView
+            android:padding="@dimen/dp_4"
+            android:id="@+id/tv_phone"
+            android:layout_alignBaseline="@+id/iv_phone"
+            android:layout_toRightOf="@+id/iv_phone"
+            android:textSize="@dimen/size_16"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:text="15956118109"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/iv_phone"
+        android:id="@+id/iv_location"
+        android:src="@drawable/ic_location_on_black_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        <android.support.v7.widget.AppCompatTextView
+            android:padding="@dimen/dp_4"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/tv_phone"
+        android:layout_toRightOf="@+id/iv_phone"
+        android:textSize="@dimen/size_16"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="苏州市昆山市花桥镇XXXXXXX昆山服務外包基地5號"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

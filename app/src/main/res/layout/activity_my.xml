@@ -13,24 +13,9 @@
         <include layout="@layout/toolbar"/>
 
     </android.support.design.widget.AppBarLayout>
-    <RelativeLayout
-        android:background="@color/colorAccent"
-        android:id="@+id/rl_my"
-        android:clickable="true"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_144">
-        <android.support.v7.widget.AppCompatTextView
-            android:textSize="@dimen/size_16"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/white"
-            android:layout_marginLeft="@dimen/activity_vertical_margin"
-            android:text="手机号码"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp" />
+    <include
+    layout="@layout/phone_address"/>
 
-    </RelativeLayout>
     <RelativeLayout
         android:background="@drawable/bg_press"
         android:id="@+id/rl_passwd"
