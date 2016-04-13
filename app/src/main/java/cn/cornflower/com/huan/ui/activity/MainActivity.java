@@ -155,6 +155,7 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_LONG).show();
             } else {
                 finish();
+                System.exit(0);
             }
             return true; }
             return super.onKeyDown(keyCode, event);
