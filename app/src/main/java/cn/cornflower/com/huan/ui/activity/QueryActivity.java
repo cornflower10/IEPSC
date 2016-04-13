@@ -33,8 +33,8 @@ public class QueryActivity extends BaseActivity {
     }
 
     private void initData() {
-        StickyListHeadersAdapter adapter = new StickyListViewAdapter(this);
-        stickyListView.setAdapter(adapter);
+//        StickyListHeadersAdapter adapter = new StickyListViewAdapter(this);
+//        stickyListView.setAdapter(adapter);
         stickyListView.setOnHeaderClickListener(new StickyListHeadersListView.OnHeaderClickListener() {
             @Override
             public void onHeaderClick(StickyListHeadersListView l, View header, int itemPosition, long headerId, boolean currentlySticky) {

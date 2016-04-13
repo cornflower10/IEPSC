@@ -11,6 +11,15 @@ public class Task implements Parcelable {
     private String arriveTime;
     private String title;
     private String context;
+    private boolean isChecked;
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 
     public String getDateTime() {
         return dateTime;
@@ -44,6 +53,9 @@ public class Task implements Parcelable {
         this.context = context;
     }
 
+    public Task() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -55,9 +67,7 @@ public class Task implements Parcelable {
         dest.writeString(this.arriveTime);
         dest.writeString(this.title);
         dest.writeString(this.context);
-    }
-
-    public Task() {
+        dest.writeByte(isChecked ? (byte) 1 : (byte) 0);
     }
 
     protected Task(Parcel in) {
@@ -65,6 +75,7 @@ public class Task implements Parcelable {
         this.arriveTime = in.readString();
         this.title = in.readString();
         this.context = in.readString();
+        this.isChecked = in.readByte() != 0;
     }
 
     public static final Creator<Task> CREATOR = new Creator<Task>() {

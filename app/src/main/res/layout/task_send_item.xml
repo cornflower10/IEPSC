@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_8"
+        android:layout_marginTop="@dimen/padding_8"
+        android:background="@drawable/bg_press"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/padding_8"
+            style="@style/marginleft_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="1233hhhhhhhhhhhhhhhh"
+                android:textColor="@color/green"
+                android:textSize="@dimen/size_14" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/acb"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/marginleft_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="1233hhhhhhhhhhhhhhhh"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/size_16" />
+
+            <TextView
+                android:id="@+id/tv_context"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginTop="@dimen/padding_8"
+                android:text="1233hhhhhhhhhhhhhhhh"
+                android:textSize="@dimen/size_14" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
+

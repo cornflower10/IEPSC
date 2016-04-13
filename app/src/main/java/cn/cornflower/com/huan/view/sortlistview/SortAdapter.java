@@ -22,7 +22,7 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer{
 	}
 	
 	/**
-	 * ��ListView��ݷ���仯ʱ,���ô˷���������ListView
+	 *
 	 * @param list
 	 */
 	public void updateListView(List<SortModel> list){

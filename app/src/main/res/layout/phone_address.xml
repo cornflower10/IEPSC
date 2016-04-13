@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <android.support.v7.widget.AppCompatTextView
-            android:padding="@dimen/dp_4"
             android:id="@+id/tv_phone"
             android:layout_alignBaseline="@+id/iv_phone"
             android:layout_toRightOf="@+id/iv_phone"
@@ -39,7 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
         <android.support.v7.widget.AppCompatTextView
-            android:padding="@dimen/dp_4"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_below="@+id/tv_phone"
         android:layout_toRightOf="@+id/iv_phone"

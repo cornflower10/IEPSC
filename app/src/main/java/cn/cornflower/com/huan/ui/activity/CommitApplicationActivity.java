@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -30,7 +31,6 @@ public class CommitApplicationActivity extends BaseActivity {
         ButterKnife.inject(this);
 
         setToolbar();
-
     }
 
     private void setToolbar() {
@@ -38,6 +38,7 @@ public class CommitApplicationActivity extends BaseActivity {
         toolbar.setTitle(getResources().getString(R.string.booking_decalaraion));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        send.setColorFilter(getResources().getColor(R.color.green));
     }
 
 
@@ -61,7 +62,7 @@ public class CommitApplicationActivity extends BaseActivity {
 
     @OnClick(R.id.send)
     public void onClick() {
-        Intent intent = new Intent(this,CommitApplicationActivity.class);
+        Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
         finish();
     }

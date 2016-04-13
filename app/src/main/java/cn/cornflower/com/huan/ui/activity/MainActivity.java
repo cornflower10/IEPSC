@@ -100,13 +100,13 @@ public class MainActivity extends BaseActivity {
 
                 switch (type) {
                     case 1:
-                        in.setClass(MainActivity.this,BookDeclarationActivity.class);
+                        in.setClass(MainActivity.this,CommitApplicationActivity.class);
                         break;
                     case 2:
                         in.setClass(MainActivity.this,QueryActivity.class);
                         break;
                     case 3:
-                        in.setClass(MainActivity.this,PeopleActivity.class);
+                        in.setClass(MainActivity.this,SendTaskActivity.class);
                         break;
                     case 4:
                         in.setClass(MainActivity.this,TaskActivity.class);
