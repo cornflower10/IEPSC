@@ -59,7 +59,11 @@
         <activity
             android:name=".ui.activity.CommitApplicationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.SendTaskActivity"
+        <activity
+            android:name=".ui.activity.SendTaskActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.EditTaskAndPeopleActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

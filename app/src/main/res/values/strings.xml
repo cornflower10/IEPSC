@@ -29,9 +29,10 @@
     <string name="send">发送</string>
     <string name="task_my">在线考评</string>
     <string name="about">关于</string>
-
+    <string name="detail">详情</string>
     <string name="amount">桶数</string>
     <string name="sales">营业额</string>
+    <string name="add">添加</string>
     <string name="title_activity_commit_application">CommitApplicationActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->

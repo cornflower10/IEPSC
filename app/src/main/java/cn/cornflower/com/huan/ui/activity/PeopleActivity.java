@@ -1,5 +1,6 @@
 package cn.cornflower.com.huan.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -180,7 +181,13 @@ public class PeopleActivity extends BaseActivity {
         if (id == android.R.id.home) {
             finish();
             return true;
+        }else if (id == R.id.action_check_people) {
+            Intent intent =new Intent(PeopleActivity.this,EditTaskAndPeopleActivity.class);
+            startActivity(intent);
+            return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 

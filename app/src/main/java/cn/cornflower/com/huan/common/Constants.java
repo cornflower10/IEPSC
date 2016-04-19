@@ -20,4 +20,5 @@ public class Constants {
 
 
     public static final String  TASKLIST = "taskList";
+    public static final String  PEOPLELIST = "peopleList";
 }
