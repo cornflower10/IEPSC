@@ -27,10 +27,11 @@
     <string name="task_check">选择任务</string>
     <string name="check_people">选人</string>
     <string name="send">发送</string>
-    <string name="task_my">我的任务</string>
+    <string name="task_my">在线考评</string>
     <string name="about">关于</string>
 
     <string name="amount">桶数</string>
+    <string name="sales">营业额</string>
     <string name="title_activity_commit_application">CommitApplicationActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->

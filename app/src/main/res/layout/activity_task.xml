@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="cn.cornflower.com.huan.ui.activity.TaskActivity">
-
+ <include layout="@layout/toolbar_"/>
     <android.support.design.widget.TabLayout
         android:id="@+id/tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
-        app:tabBackground="@color/green"
-        app:tabIndicatorColor="@android:color/white"
-        app:tabTextColor="@android:color/white" />
+        app:tabBackground="@android:color/white"
+        app:tabIndicatorColor="@color/green"
+        app:tabSelectedTextColor="@color/green"
+        app:tabTextColor="@color/green_half" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"

@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,8 @@ public class TaskActivity extends BaseActivity {
     TabLayout tb;
     @InjectView(R.id.vp)
     ViewPager vp;
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
     private FragmentTaskAdatpter fragmentAdapter;
     private Task task;
 
@@ -32,7 +35,8 @@ public class TaskActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
         ButterKnife.inject(this);
-         initData();
+        initData();
+        setToolbar();
     }
 
     @SuppressWarnings("WrongConstant")
@@ -41,16 +45,16 @@ public class TaskActivity extends BaseActivity {
 
         List<Fragment> lf = new ArrayList<>();
 
-        for (int i = 0; i<2 ;i++){
+        for (int i = 0; i < 2; i++) {
             FinshTaskFragment finshTaskFragment = new FinshTaskFragment();
-            Bundle bundle =new Bundle();
-            List<Task> taskList =new ArrayList<>();
-            for (int j = 0; j<9 ;j++){
+            Bundle bundle = new Bundle();
+            List<Task> taskList = new ArrayList<>();
+            for (int j = 0; j < 9; j++) {
                 Task task = new Task();
-                task.setDateTime("2016-04-12 14:2"+j);
-                task.setArriveTime("3"+j);
-                task.setTitle("昆山市花桥镇"+j);
-                task.setContext("昆山市花桥镇XXXX餐厅需要服务XXXXX请尽快处理"+j);
+                task.setDateTime("2016-04-12 14:2" + j);
+                task.setArriveTime("3" + j);
+                task.setTitle("昆山市花桥镇" + j);
+                task.setContext("昆山市花桥镇XXXX餐厅需要服务XXXXX请尽快处理" + j);
                 taskList.add(task);
             }
             bundle.putParcelableArrayList(Constants.TASKLIST, (ArrayList<? extends Parcelable>) taskList);
@@ -65,7 +69,7 @@ public class TaskActivity extends BaseActivity {
         tb.setTabMode(TabLayout.MODE_FIXED);
         tb.addTab(tb.newTab().setText(listTitle.get(0)));
         tb.addTab(tb.newTab().setText(listTitle.get(1)));
-        fragmentAdapter  = new FragmentTaskAdatpter(getSupportFragmentManager(),lf,listTitle);
+        fragmentAdapter = new FragmentTaskAdatpter(getSupportFragmentManager(), lf, listTitle);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -86,5 +90,32 @@ public class TaskActivity extends BaseActivity {
 
         tb.setupWithViewPager(vp);
 
+    }
+
+    private void setToolbar() {
+        toolbar.setTitle(getResources().getString(R.string.task_my));
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_my, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

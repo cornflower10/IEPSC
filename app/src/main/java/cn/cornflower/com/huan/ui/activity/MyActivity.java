@@ -34,6 +34,7 @@ public class MyActivity extends BaseActivity {
         setContentView(R.layout.activity_my);
         ButterKnife.inject(this);
         setToolbar();
+
     }
 
     private void setToolbar() {

@@ -1,6 +1,7 @@
 package cn.cornflower.com.huan.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
@@ -13,31 +14,36 @@ import cn.cornflower.com.huan.R;
 /**
  * Created by xiejingbao on 2016/3/23.
  */
-public class ClearEditText extends AppCompatEditText implements View.OnFocusChangeListener{
+public class ClearEditText extends AppCompatEditText implements View.OnFocusChangeListener {
+
+    private boolean isShowClear = true;
 
     private Drawable mDrawable;
 
     public ClearEditText(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public ClearEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public ClearEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-
-        init(context);
+        init(context, attrs);
     }
 
-    private void init(Context context) {
-     Drawable [] drawable =  getCompoundDrawables();
-        if(drawable[2]==null){
+    private void init(Context context, AttributeSet attrs) {
+
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ClearEditText);
+        isShowClear = typedArray.getBoolean(R.styleable.ClearEditText_isShowClear, true);
+
+        Drawable[] drawable = getCompoundDrawables();
+        if (drawable[2] == null) {
             mDrawable = getResources().getDrawable(R.mipmap.ic_clear);
-        }else
+        } else
             mDrawable = drawable[2];
 
         setCompoundDrawable(mDrawable);
@@ -46,15 +52,15 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
 
     }
 
-    public void setCompoundDrawable(Drawable drawable){
-        setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null);
+    public void setCompoundDrawable(Drawable drawable) {
+        setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
     }
 
 
-    public void setClearIconVisible(boolean b){
-        if(b){
+    public void setClearIconVisible(boolean b) {
+        if (b && isShowClear) {
             setCompoundDrawable(mDrawable);
-        }else
+        } else
             setCompoundDrawable(null);
 
     }
@@ -62,25 +68,25 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
     @Override
     public void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
-        setClearIconVisible(text.length()>0);
-        Log.e("text..",text.toString());
+        setClearIconVisible(text.length() > 0);
+        Log.e("text..", text.toString());
     }
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-          if(event.getAction()==MotionEvent.ACTION_UP){
-              float x = event.getX();
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            float x = event.getX();
 //              Log.e("x..",x+"");
 //              Log.e("x..getWidth()",getWidth()+"");
 //              Log.e("getWidth() - getTotal.",(getWidth() - getTotalPaddingRight())+"");
 //              Log.e("getWidth()-getPadding.",(getWidth()-getPaddingRight())+"");
-            if(x > getWidth() - getTotalPaddingRight()
-                    && x < getWidth()-getPaddingRight()){
-               this.setText("");
+            if (x > getWidth() - getTotalPaddingRight()
+                    && x < getWidth() - getPaddingRight()) {
+                this.setText("");
             }
 
-          }
+        }
 
         return super.onTouchEvent(event);
     }
