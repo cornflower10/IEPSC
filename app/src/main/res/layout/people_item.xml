@@ -6,8 +6,6 @@
     android:background="@drawable/bg_press"
     android:orientation="vertical" >
 
-    <View
-        style="@style/line_margin_v" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp">
@@ -23,5 +21,6 @@
             android:textColor="@color/green"
             android:text="hhhh"/>
     </RelativeLayout>
-
+    <View
+        style="@style/line_margin_v" />
 </LinearLayout>

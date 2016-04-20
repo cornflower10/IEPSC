@@ -1,36 +1,66 @@
 package cn.cornflower.com.huan.ui.activity;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import cn.cornflower.com.huan.R;
-import cn.cornflower.com.huan.adapter.FragmentTaskAdatpter;
+import cn.cornflower.com.huan.adapter.AddPeopleAdapter;
+import cn.cornflower.com.huan.adapter.TaskAdapter;
 import cn.cornflower.com.huan.common.Constants;
 import cn.cornflower.com.huan.entity.Task;
-import cn.cornflower.com.huan.ui.activity.fragment.FinshTaskFragment;
-import cn.cornflower.com.huan.ui.activity.fragment.PeolpeFragment;
+import cn.cornflower.com.huan.util.ListViewUtil;
+import cn.cornflower.com.huan.util.ScreenUtils;
 import cn.cornflower.com.huan.view.sortlistview.SortModel;
+import cn.cornflower.com.huan.view.sweeplist.SwipeMenu;
+import cn.cornflower.com.huan.view.sweeplist.SwipeMenuCreator;
+import cn.cornflower.com.huan.view.sweeplist.SwipeMenuItem;
+import cn.cornflower.com.huan.view.sweeplist.SwipeMenuListView;
 
 public class EditTaskAndPeopleActivity extends BaseActivity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.tb)
-    TabLayout tb;
-    @InjectView(R.id.vp)
-    ViewPager vp;
-    FragmentTaskAdatpter fragmentAdapter;
+    @InjectView(R.id.iv_add_task)
+    ImageView ivAddTask;
+    @InjectView(R.id.rl_task)
+    RelativeLayout rlTask;
+    @InjectView(R.id.slv_task)
+    SwipeMenuListView slvTask;
+    @InjectView(R.id.iv_add_people)
+    ImageView ivAddPeople;
+    @InjectView(R.id.rl_people)
+    RelativeLayout rlPeople;
+    @InjectView(R.id.slv_people)
+    SwipeMenuListView slvPeople;
+    @InjectView(R.id.line_v)
+    View lineV;
+
+
+    private List<Task> checkTaskList;
+
+    private List<SortModel> checkPeopleList;
+
+    private AddPeopleAdapter addPeopleAdapter;
+
+    private TaskAdapter taskAdatpter;
+
+    private final static int TASKTAG = 0;
+    private final static int PEOPLETAG = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,52 +68,98 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
         ButterKnife.inject(this);
         setToolbar();
         initData();
+        initListener();
+    }
+
+    private void initListener() {
+
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
+
+            @Override
+            public void create(SwipeMenu menu) {
+                // Create different menus depending on the view type
+                switch (menu.getViewType()) {
+                    case 0:
+                        createMenu1(menu);
+                        break;
+
+                }
+            }
+
+            private void createMenu1(SwipeMenu menu) {
+                SwipeMenuItem item1 = new SwipeMenuItem(getApplicationContext());
+                item1.setBackground(new ColorDrawable(Color.rgb(255, 0,
+                        0)));
+                item1.setWidth( ScreenUtils.sizeTdp(90,EditTaskAndPeopleActivity.this));
+                item1.setIcon(R.mipmap.delete_icon);
+                menu.addMenuItem(item1);
+            }
+        };
+        // set creator
+        slvTask.setMenuCreator(creator);
+
+        slvTask.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu,
+                                           int index) {
+                //	System.out.println("====================>"+index);
+                if(index==0){
+                    checkTaskList.remove(position);
+                    taskAdatpter.notifyDataSetChanged();
+                    ListViewUtil.setListViewHeight(slvTask);
+                }
+                return true;
+            }
+        });
+
+        slvPeople.setMenuCreator(creator);
+
+        slvPeople.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu,
+                                           int index) {
+                //	System.out.println("====================>"+index);
+                if(index==0){
+                    checkPeopleList.remove(position);
+                    addPeopleAdapter.notifyDataSetChanged();
+                    ListViewUtil.setListViewHeight(slvPeople);
+                }
+                return true;
+            }
+        });
     }
 
 
     @SuppressWarnings("WrongConstant")
     private void initData() {
-        List<Fragment> lf = new ArrayList<>();
-        FinshTaskFragment finshTaskFragment = new FinshTaskFragment();
-        Bundle bundle = new Bundle();
-        List<Task> taskList = new ArrayList<>();
-        for (int j = 0; j < 9; j++) {
-            Task task = new Task();
-            task.setDateTime("2016-04-12 14:2" + j);
-            task.setArriveTime("3" + j);
-            task.setTitle("昆山市花桥镇" + j);
-            task.setContext("昆山市花桥镇XXXX餐厅需要服务XXXXX请尽快处理" + j);
-            taskList.add(task);
-        }
-        bundle.putParcelableArrayList(Constants.TASKLIST, (ArrayList<? extends Parcelable>) taskList);
-        finshTaskFragment.setArguments(bundle);
-        lf.add(finshTaskFragment);
 
-        PeolpeFragment peolpeFragment = new PeolpeFragment();
-        Bundle bundlePeople = new Bundle();
-        List<SortModel> sortModels = new ArrayList<>();
-        for (int j = 0; j < 9; j++) {
-            SortModel sortModel = new SortModel();
-            sortModel.setName("送哥哥"+j);
-            sortModels.add(sortModel);
-        }
-        bundlePeople.putParcelableArrayList(Constants.PEOPLELIST, (ArrayList<? extends Parcelable>) sortModels);
-        peolpeFragment.setArguments(bundlePeople);
-        lf.add(peolpeFragment);
+//        checkTaskList = getIntent().getParcelableArrayListExtra(Constants.TASKLIST);
+//        checkPeopleList = getIntent().getParcelableArrayListExtra(Constants.PEOPLELIST);
+        checkTaskList = new ArrayList<>();
+        checkPeopleList = new ArrayList<>();
 
+        taskAdatpter = new TaskAdapter(this, checkTaskList);
+        slvTask.setAdapter(taskAdatpter);
+//        ListViewUtil.setListViewHeight(slvTask);
 
-        List<String> listTitle = new ArrayList<>();
-        listTitle.add("任务");
-        listTitle.add("联系人");
+        addPeopleAdapter = new AddPeopleAdapter(this, R.layout.people_item, checkPeopleList);
+        slvPeople.setAdapter(addPeopleAdapter);
+//        ListViewUtil.setListViewHeight(slvPeople);
+    }
 
-        tb.setTabMode(TabLayout.MODE_FIXED);
-        tb.addTab(tb.newTab().setText(listTitle.get(0)));
-        tb.addTab(tb.newTab().setText(listTitle.get(1)));
-        fragmentAdapter = new FragmentTaskAdatpter(getSupportFragmentManager(), lf, listTitle);
+    private void updateTask (Intent intent){
+        List<Task> listTask = intent.getParcelableArrayListExtra(Constants.TASKLIST);
+        checkTaskList.addAll(listTask);
+        taskAdatpter.notifyDataSetChanged();
+        ListViewUtil.setListViewHeight(slvTask);
+    }
 
-        vp.setAdapter(fragmentAdapter);
-
-        tb.setupWithViewPager(vp);
+    private void updatePeople (Intent intent){
+//        checkPeopleList.clear();
+        List<SortModel> list = intent.getParcelableArrayListExtra(Constants.PEOPLELIST);
+        checkPeopleList.addAll(list);
+        addPeopleAdapter.notifyDataSetChanged();
+        ListViewUtil.setListViewHeight(slvPeople);
 
     }
 
@@ -109,12 +185,59 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
         if (id == android.R.id.home) {
             finish();
             return true;
-        }
-       else if (id == R.id.add) {
-
+        } else if (id == R.id.send) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @OnClick({R.id.iv_add_task, R.id.rl_task, R.id.iv_add_people, R.id.rl_people})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_add_task:
+                Intent intent = new Intent(this, SendTaskActivity.class);
+                startActivityForResult(intent,TASKTAG);
+                break;
+            case R.id.rl_task:
+                if (slvTask.getVisibility() == View.GONE) {
+                    slvTask.setVisibility(View.VISIBLE);
+                    if(checkTaskList.size()>0){
+                        lineV.setVisibility(View.VISIBLE);
+                    }
+
+                } else{
+                    lineV.setVisibility(View.GONE);
+                    slvTask.setVisibility(View.GONE);
+                }
+
+                break;
+            case R.id.iv_add_people:
+                Intent intent_people = new Intent(this, PeopleActivity.class);
+                startActivityForResult(intent_people,PEOPLETAG);
+                break;
+            case R.id.rl_people:
+                if (slvPeople.getVisibility() == View.GONE) {
+                    slvPeople.setVisibility(View.VISIBLE);
+                } else
+                    slvPeople.setVisibility(View.GONE);
+                break;
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == TASKTAG){
+            if(resultCode == RESULT_OK){
+                updateTask (data);
+            }
+        }
+       else if(requestCode == PEOPLETAG){
+            updatePeople(data);
+        }
     }
 
 }

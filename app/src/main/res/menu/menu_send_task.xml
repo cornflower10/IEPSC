@@ -2,9 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="cn.cornflower.com.huan.MainActivity" >
-  <item android:id="@+id/action_check_people"
-      android:icon="@drawable/ic_person_add_black_24dp"
-        android:title="@string/check_people"
+  <item android:id="@+id/action_done"
+      android:icon="@drawable/ic_done_white_24dp"
+        android:title="@string/done"
         android:orderInCategory="100"
         app:showAsAction="always" />
 

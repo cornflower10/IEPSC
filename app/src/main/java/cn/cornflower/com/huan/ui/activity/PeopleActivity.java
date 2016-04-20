@@ -2,6 +2,7 @@ package cn.cornflower.com.huan.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -22,6 +23,8 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
+import cn.cornflower.com.huan.common.Constants;
+import cn.cornflower.com.huan.entity.Task;
 import cn.cornflower.com.huan.view.ClearEditText;
 import cn.cornflower.com.huan.view.sortlistview.CharacterParser;
 import cn.cornflower.com.huan.view.sortlistview.PinyinComparator;
@@ -43,6 +46,7 @@ public class PeopleActivity extends BaseActivity {
 
 
     private PinyinComparator pinyinComparator;
+    private List<Task> checkTaskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,12 @@ public class PeopleActivity extends BaseActivity {
         setContentView(R.layout.activity_people);
         ButterKnife.inject(this);
         initViews();
+        initData();
+    }
+
+    private void initData() {
+        checkTaskList = getIntent().getParcelableArrayListExtra(Constants.TASKLIST);
+
     }
 
     private void initViews() {
@@ -62,7 +72,7 @@ public class PeopleActivity extends BaseActivity {
         dialog = (TextView) findViewById(R.id.dialog);
         sideBar.setTextView(dialog);
 
-        //�����Ҳഥ������
+
         sideBar.setOnTouchingLetterChangedListener(new SideBar.OnTouchingLetterChangedListener() {
 
             @Override
@@ -89,7 +99,7 @@ public class PeopleActivity extends BaseActivity {
 
         SourceDateList = filledData(getResources().getStringArray(R.array.date));
 
-        // ���a-z��������Դ���
+
         Collections.sort(SourceDateList, pinyinComparator);
         adapter = new SortAdapter(this, SourceDateList);
         sortListView.setAdapter(adapter);
@@ -97,7 +107,7 @@ public class PeopleActivity extends BaseActivity {
 
         mClearEditText = (ClearEditText) findViewById(R.id.filter_edit);
 
-        //������������ֵ�ĸı�����������
+
         mClearEditText.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -171,7 +181,7 @@ public class PeopleActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_send_people, menu);
+        getMenuInflater().inflate(R.menu.menu_send_task, menu);
         return true;
     }
 
@@ -181,9 +191,12 @@ public class PeopleActivity extends BaseActivity {
         if (id == android.R.id.home) {
             finish();
             return true;
-        }else if (id == R.id.action_check_people) {
-            Intent intent =new Intent(PeopleActivity.this,EditTaskAndPeopleActivity.class);
-            startActivity(intent);
+        }else if (id == R.id.action_done) {
+            Intent intent =new Intent();
+            intent.putParcelableArrayListExtra(Constants.PEOPLELIST,
+                    (ArrayList<? extends Parcelable>) adapter.getCheckPeopleList());
+            this.setResult(RESULT_OK,intent);
+            finish();
             return true;
         }
 

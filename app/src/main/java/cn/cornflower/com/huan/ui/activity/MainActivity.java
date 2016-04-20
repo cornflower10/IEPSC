@@ -106,7 +106,7 @@ public class MainActivity extends BaseActivity {
                         in.setClass(MainActivity.this,QueryActivity.class);
                         break;
                     case 3:
-                        in.setClass(MainActivity.this,SendTaskActivity.class);
+                        in.setClass(MainActivity.this,EditTaskAndPeopleActivity.class);
                         break;
                     case 4:
                         in.setClass(MainActivity.this,TaskActivity.class);

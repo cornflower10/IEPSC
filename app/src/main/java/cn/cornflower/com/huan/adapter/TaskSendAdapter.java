@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ public class TaskSendAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private List<Task> gridItemList;
     private Context context;
+
 
     public TaskSendAdapter(Context context, List<Task> gridItemList) {
         this.context = context;
@@ -87,5 +89,19 @@ public class TaskSendAdapter extends BaseAdapter {
         ViewHolder(View view) {
             ButterKnife.inject(this, view);
         }
+    }
+
+    /**
+     * 选中task
+     * @return
+     */
+    public List<Task> getCheckTaskList() {
+        List<Task>  checkTaskList = new ArrayList<>();
+        for (Task task:gridItemList) {
+            if(task.isChecked()){
+                checkTaskList.add(task);
+            }
+        }
+        return checkTaskList;
     }
 }

@@ -2,6 +2,7 @@ package cn.cornflower.com.huan.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,12 +15,14 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.adapter.TaskSendAdapter;
+import cn.cornflower.com.huan.common.Constants;
 import cn.cornflower.com.huan.entity.Task;
 
 public class SendTaskActivity extends BaseActivity {
 
     @InjectView(R.id.lv_send_task)
     ListView lvSendTask;
+    private TaskSendAdapter taskSendAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,9 @@ public class SendTaskActivity extends BaseActivity {
             task.setContext("昆山市花桥镇XXXX餐厅需要服务XXXXX请尽快处理"+j);
             taskList.add(task);
         }
-        lvSendTask.setAdapter(new TaskSendAdapter(this,taskList));
+        taskSendAdapter = new TaskSendAdapter(this,taskList);
+
+        lvSendTask.setAdapter(taskSendAdapter);
 
     }
 
@@ -70,9 +75,12 @@ public class SendTaskActivity extends BaseActivity {
             return true;
         }
 
-        if (id == R.id.action_check_people) {
-            Intent intent = new Intent(this, PeopleActivity.class);
-            startActivity(intent);
+        if (id == R.id.action_done) {
+            Intent intent = new Intent();
+            intent.putParcelableArrayListExtra(Constants.TASKLIST,
+                    (ArrayList<? extends Parcelable>) taskSendAdapter.getCheckTaskList());
+           setResult(RESULT_OK,intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

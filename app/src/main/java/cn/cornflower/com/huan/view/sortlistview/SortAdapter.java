@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.cornflower.com.huan.R;
@@ -133,5 +134,19 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer {
     @Override
     public Object[] getSections() {
         return null;
+    }
+
+    /**
+     * 选中的人
+     * @return
+     */
+
+    public List<SortModel> getCheckPeopleList() {
+        List<SortModel> sortModels = new ArrayList<>();
+        for (SortModel sortModel:list) {
+            if(sortModel.isChecked())
+                sortModels.add(sortModel);
+        }
+        return sortModels;
     }
 }

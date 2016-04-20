@@ -43,7 +43,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.PeopleActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".ui.activity.PasswdActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -61,7 +62,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.activity.SendTaskActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+           />
         <activity
             android:name=".ui.activity.EditTaskAndPeopleActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>

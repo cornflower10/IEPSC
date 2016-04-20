@@ -13,8 +13,10 @@ import cn.cornflower.com.huan.view.sortlistview.SortModel;
 /**
  * Created by Administrator on 2016/4/19.
  */
-public class FragmentPeopleAdapter extends CommonAdapter<SortModel> {
-    public FragmentPeopleAdapter(Context context, int layoutId, List<SortModel> datas) {
+public class AddPeopleAdapter extends CommonAdapter<SortModel> {
+
+
+    public AddPeopleAdapter(Context context, int layoutId, List<SortModel> datas) {
         super(context, layoutId, datas);
     }
 

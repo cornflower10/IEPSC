@@ -22,6 +22,10 @@ public class TaskAdapter extends BaseAdapter {
     private List<Task> gridItemList;
     private Context context;
 
+    public void setGridItemList(List<Task> gridItemList) {
+        this.gridItemList = gridItemList;
+    }
+
     public TaskAdapter(Context context, List<Task> gridItemList) {
         this.context = context;
         this.gridItemList = gridItemList;
