@@ -15,7 +15,8 @@
     <color name="bg_">#fbfbfb</color>
     <color name="line">#ffd3dde6</color>
 
-    <color name="text_color">#919191</color>
+    <color name="text_color">#919191</color>\
+    <color name="half_tran">#7c000000</color>
 
     <!--<color name="yellow_normal">#FF8C00</color>&lt;!&ndash;黄色按钮&ndash;&gt;-->
     <!--<color name="yellow_press">#5eFF8C00</color>&lt;!&ndash;黄色按钮&ndash;&gt;-->

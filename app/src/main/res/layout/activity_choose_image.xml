@@ -8,10 +8,27 @@
         android:stretchMode="columnWidth"
         android:numColumns="3"
         android:listSelector="@android:color/transparent"
-        android:horizontalSpacing="@dimen/dp_4"
-        android:verticalSpacing="@dimen/dp_4"
+        android:horizontalSpacing="@dimen/dp_3"
+        android:verticalSpacing="@dimen/dp_3"
         android:id="@+id/gv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></GridView>
+        android:layout_height="match_parent">
+
+    </GridView>
+    <RelativeLayout
+        android:background="@color/half_tran"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56">
+        <Button
+            android:id="@+id/bt_pic"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="图片"
+            android:textSize="@dimen/size_18"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
 </RelativeLayout>

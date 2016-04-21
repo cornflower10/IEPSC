@@ -66,7 +66,8 @@
             android:name=".ui.activity.EditTaskAndPeopleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.ChooseImageActivity" />
-        <activity android:name=".ui.activity.OnlineScoringActivity"></activity>
+        <activity android:name=".ui.activity.OnlineScoringActivity" />
+        <activity android:name=".ui.activity.TestActivity"></activity>
     </application>
 
 </manifest>

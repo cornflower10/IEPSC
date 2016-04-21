@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp"
+>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:id="@+id/iv"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv"
+        android:text="weixin"
+        android:textSize="@dimen/size_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv"
+        android:text="weixin"
+        android:textSize="@dimen/size_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.AppCompatRadioButton
+        android:layout_centerVertical="true"
+        android:id="@+id/arb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:focusable="false" />
+
+</RelativeLayout>

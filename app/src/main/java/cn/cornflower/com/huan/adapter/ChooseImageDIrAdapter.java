@@ -18,10 +18,10 @@ import cn.cornflower.com.huan.entity.ImageEntity;
 /**
  * Created by Administrator on 2016/4/19.
  */
-public class ChooseImageAdapter extends CommonAdapter<ImageEntity> {
+public class ChooseImageDIrAdapter extends CommonAdapter<ImageEntity> {
 
 
-    public ChooseImageAdapter(Context context, int layoutId, List<ImageEntity> datas) {
+    public ChooseImageDIrAdapter(Context context, int layoutId, List<ImageEntity> datas) {
         super(context, layoutId, datas);
     }
 

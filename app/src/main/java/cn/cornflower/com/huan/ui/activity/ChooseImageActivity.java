@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.GridView;
 
 import java.io.File;
@@ -65,7 +66,7 @@ public class ChooseImageActivity extends BaseActivity {
             @Override
             public void run() {
                 Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                ContentResolver mContentResolver = getContentResolver();
+                ContentResolver mContentResolver = ChooseImageActivity.this.getContentResolver();
 
                 //只查询jpeg和png的图片
                 Cursor mCursor = mContentResolver.query(mImageUri, null,
@@ -83,13 +84,14 @@ public class ChooseImageActivity extends BaseActivity {
                             .getColumnIndex(MediaStore.Images.Media.DATA));
 
                     //获取该图片的父路径名
-                    String parentName = new File(path).getParentFile().getName();
+                    String parentName = new File(path).getParentFile().getAbsolutePath();
 
 
                     //根据父路径名将图片放入到mGruopMap中
                     if (!mGruopMap.containsKey(parentName)) {
                         List<ImageEntity> chileList = new ArrayList<ImageEntity>();
                         ImageEntity image =new ImageEntity();
+                        Log.e("path....",path);
                         image.setUrl(path);
                         chileList.add(image);
                         mGruopMap.put(parentName, chileList);
