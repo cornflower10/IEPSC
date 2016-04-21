@@ -1,5 +1,6 @@
 package cn.cornflower.com.huan.ui.activity.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,8 @@ import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.adapter.TaskAdapter;
 import cn.cornflower.com.huan.common.Constants;
 import cn.cornflower.com.huan.entity.Task;
+import cn.cornflower.com.huan.ui.activity.ChooseImageActivity;
+import cn.cornflower.com.huan.ui.activity.OnlineScoringActivity;
 
 /**
  * Created by Administrator on 2016/4/5.
@@ -39,7 +42,8 @@ public class FinshTaskFragment extends Fragment {
         lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent =new Intent(getActivity(),OnlineScoringActivity.class);
+                startActivity(intent);
             }
         });
 
