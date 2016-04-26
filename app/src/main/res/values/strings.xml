@@ -5,7 +5,7 @@
 
     <string name="login">登 陆</string>
 
-    <string name="phone">手机号码</string>
+    <string name="phone">手机号码/登录名</string>
     <string name="passwd">密码</string>
     <string name="old_passwd">旧密码</string>
     <string name="new_passwd">新密码</string>

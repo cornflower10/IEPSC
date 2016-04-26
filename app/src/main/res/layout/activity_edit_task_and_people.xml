@@ -20,7 +20,14 @@
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_56">
+                <ImageView
+                    android:id="@+id/iv_tag"
+                    android:src="@drawable/ic_expand_more_green_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
                 <TextView
+                    android:layout_marginLeft="@dimen/dp_3"
+                    android:layout_centerHorizontal="true"
                     android:textColor="@color/green"
                     android:gravity="center_vertical"
                     android:text="任务"
@@ -42,7 +49,8 @@
                 style="@style/listViewStyle"
                 android:id="@+id/slv_task"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
             </cn.cornflower.com.huan.view.sweeplist.SwipeMenuListView>
             <View
@@ -57,7 +65,13 @@
                 android:clickable="true"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_56">
+                <ImageView
+                    android:id="@+id/iv_tag_people"
+                    android:src="@drawable/ic_expand_more_green_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
                 <TextView
+                    android:layout_centerHorizontal="true"
                     android:textColor="@color/green"
                     android:gravity="center_vertical"
                     android:text="发送人"
@@ -76,6 +90,7 @@
                 style="@style/line_fill_v"
                 />
             <cn.cornflower.com.huan.view.sweeplist.SwipeMenuListView
+                android:visibility="gone"
                 style="@style/listViewStyle"
                 android:id="@+id/slv_people"
                 android:layout_width="match_parent"

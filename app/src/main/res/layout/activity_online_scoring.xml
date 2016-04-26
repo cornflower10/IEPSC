@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cn.cornflower.com.huan.ui.activity.OnlineScoringActivity">
-  <TextView
+
+    <include layout="@layout/toolbar_"/>
+    <TextView
       android:layout_marginLeft="@dimen/activity_horizontal_margin"
-      android:layout_marginTop="@dimen/activity_horizontal_margin"
-      android:text="环境情况"
+      android:layout_marginTop="@dimen/padding_8"
+      android:text="卫生情况"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content" />
     <LinearLayout
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
         style="@style/marginleft_right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +47,63 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <View
+        style="@style/line_margin_v"/>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_72"
+        >
+    <cn.cornflower.com.huan.view.ClearEditText
+        android:id="@+id/et_name"
+        android:inputType="number"
+        android:hint="营业额"
+        android:maxLength="15"
+        android:textSize="@dimen/size_16"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_56"
+        android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_72"
+        >
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_name1"
+            android:inputType="number"
+            android:hint="产生量"
+            android:maxLength="15"
+            android:textSize="@dimen/size_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_72"
+        >
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_name_"
+            android:inputType="number"
+            android:hint="检测（含油率，含水率）"
+            android:maxLength="15"
+            android:textSize="@dimen/size_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:drawableRight="@drawable/abc_ic_clear_mtrl_alpha"/>
+    </android.support.design.widget.TextInputLayout>
+
 
     <RelativeLayout
         style="@style/marginleft_right"

@@ -27,7 +27,7 @@
         >
     <cn.cornflower.com.huan.view.ClearEditText
         android:id="@+id/et_name"
-        android:inputType="number"
+        android:inputType="text"
         android:hint="@string/phone"
         android:maxLength="15"
         android:textSize="@dimen/size_16"

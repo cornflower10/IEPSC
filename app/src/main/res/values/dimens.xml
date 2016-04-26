@@ -14,6 +14,8 @@
     <dimen name="padding_8">8dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_3">3dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
 
 
     <dimen name="size_16">16sp</dimen>

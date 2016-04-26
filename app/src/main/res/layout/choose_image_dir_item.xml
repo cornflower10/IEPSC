@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="80dp"
+    android:layout_height="120dp"
+    android:background="@drawable/bg_press"
 >
 
     <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_marginTop="@dimen/dp_10"
+        android:paddingBottom="17dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="9dp"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:id="@+id/iv"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_centerVertical="true"
-        android:scaleType="centerCrop" />
+        android:layout_width="100dp"
+        android:background="@mipmap/pic_dir"
+        android:layout_height="100dp"
+        android:scaleType="fitXY" />
 
     <TextView
-        android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:id="@+id/tv_dir_name"
+        android:layout_marginBottom="@dimen/dp_4"
+       android:layout_above="@+id/v"
         android:layout_toRightOf="@+id/iv"
         android:text="weixin"
         android:textSize="@dimen/size_16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <View
+        android:id="@+id/v"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"/>
     <TextView
-        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:id="@+id/tv_pic_count"
+        android:layout_below="@+id/v"
         android:layout_toRightOf="@+id/iv"
         android:text="weixin"
-        android:textSize="@dimen/size_16"
+        android:textSize="@dimen/size_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <android.support.v7.widget.AppCompatRadioButton
+    <ImageView
         android:layout_centerVertical="true"
-        android:id="@+id/arb"
+        android:id="@+id/iv_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:focusable="false" />
-
+       />
+    <View
+     android:layout_alignParentBottom="true"
+        style="@style/line_margin_v"/>
 </RelativeLayout>

@@ -48,6 +48,10 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
     SwipeMenuListView slvPeople;
     @InjectView(R.id.line_v)
     View lineV;
+    @InjectView(R.id.iv_tag)
+    ImageView ivTag;
+    @InjectView(R.id.iv_tag_people)
+    ImageView ivTagPeople;
 
 
     private List<Task> checkTaskList;
@@ -90,7 +94,7 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
                 SwipeMenuItem item1 = new SwipeMenuItem(getApplicationContext());
                 item1.setBackground(new ColorDrawable(Color.rgb(255, 0,
                         0)));
-                item1.setWidth( ScreenUtils.sizeTdp(90,EditTaskAndPeopleActivity.this));
+                item1.setWidth(ScreenUtils.sizeTdp(90, EditTaskAndPeopleActivity.this));
                 item1.setIcon(R.mipmap.delete_icon);
                 menu.addMenuItem(item1);
             }
@@ -103,7 +107,7 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu,
                                            int index) {
                 //	System.out.println("====================>"+index);
-                if(index==0){
+                if (index == 0) {
                     checkTaskList.remove(position);
                     taskAdatpter.notifyDataSetChanged();
                     ListViewUtil.setListViewHeight(slvTask);
@@ -119,7 +123,7 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu,
                                            int index) {
                 //	System.out.println("====================>"+index);
-                if(index==0){
+                if (index == 0) {
                     checkPeopleList.remove(position);
                     addPeopleAdapter.notifyDataSetChanged();
                     ListViewUtil.setListViewHeight(slvPeople);
@@ -147,16 +151,26 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
 //        ListViewUtil.setListViewHeight(slvPeople);
     }
 
-    private void updateTask (Intent intent){
+    private void updateTask(Intent intent) {
         List<Task> listTask = intent.getParcelableArrayListExtra(Constants.TASKLIST);
+        if(listTask.size()>0){
+            slvTask.setVisibility(View.VISIBLE);
+            ivTag.setImageDrawable(getResources().
+                    getDrawable(R.drawable.ic_expand_less_green_24dp));
+        }
         checkTaskList.addAll(listTask);
         taskAdatpter.notifyDataSetChanged();
         ListViewUtil.setListViewHeight(slvTask);
     }
 
-    private void updatePeople (Intent intent){
+    private void updatePeople(Intent intent) {
 //        checkPeopleList.clear();
         List<SortModel> list = intent.getParcelableArrayListExtra(Constants.PEOPLELIST);
+        if(list.size()>0){
+            slvPeople.setVisibility(View.VISIBLE);
+            ivTagPeople.setImageDrawable(getResources().
+                    getDrawable(R.drawable.ic_expand_less_green_24dp));
+        }
         checkPeopleList.addAll(list);
         addPeopleAdapter.notifyDataSetChanged();
         ListViewUtil.setListViewHeight(slvPeople);
@@ -198,16 +212,20 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.iv_add_task:
                 Intent intent = new Intent(this, SendTaskActivity.class);
-                startActivityForResult(intent,TASKTAG);
+                startActivityForResult(intent, TASKTAG);
                 break;
             case R.id.rl_task:
                 if (slvTask.getVisibility() == View.GONE) {
                     slvTask.setVisibility(View.VISIBLE);
-                    if(checkTaskList.size()>0){
+                    ivTag.setImageDrawable(getResources().
+                            getDrawable(R.drawable.ic_expand_less_green_24dp));
+                    if (checkTaskList.size() > 0) {
                         lineV.setVisibility(View.VISIBLE);
                     }
 
-                } else{
+                } else {
+                    ivTag.setImageDrawable(getResources()
+                            .getDrawable(R.drawable.ic_expand_more_green_24dp));
                     lineV.setVisibility(View.GONE);
                     slvTask.setVisibility(View.GONE);
                 }
@@ -215,13 +233,20 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
                 break;
             case R.id.iv_add_people:
                 Intent intent_people = new Intent(this, PeopleActivity.class);
-                startActivityForResult(intent_people,PEOPLETAG);
+                startActivityForResult(intent_people, PEOPLETAG);
                 break;
             case R.id.rl_people:
                 if (slvPeople.getVisibility() == View.GONE) {
                     slvPeople.setVisibility(View.VISIBLE);
+                    ivTagPeople.setImageDrawable(getResources().
+                            getDrawable(R.drawable.ic_expand_less_green_24dp));
                 } else
+                {
                     slvPeople.setVisibility(View.GONE);
+                    ivTagPeople.setImageDrawable(getResources()
+                            .getDrawable(R.drawable.ic_expand_more_green_24dp));
+                }
+
                 break;
         }
     }
@@ -230,12 +255,11 @@ public class EditTaskAndPeopleActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == TASKTAG){
-            if(resultCode == RESULT_OK){
-                updateTask (data);
+        if (requestCode == TASKTAG) {
+            if (resultCode == RESULT_OK) {
+                updateTask(data);
             }
-        }
-       else if(requestCode == PEOPLETAG){
+        } else if (requestCode == PEOPLETAG) {
             updatePeople(data);
         }
     }

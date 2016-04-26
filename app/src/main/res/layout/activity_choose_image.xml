@@ -5,11 +5,12 @@
     android:background="@android:color/black"
 >
     <GridView
+        android:fastScrollEnabled="false"
         android:stretchMode="columnWidth"
         android:numColumns="3"
         android:listSelector="@android:color/transparent"
-        android:horizontalSpacing="@dimen/dp_3"
-        android:verticalSpacing="@dimen/dp_3"
+        android:horizontalSpacing="@dimen/dp_2"
+        android:verticalSpacing="@dimen/dp_2"
         android:id="@+id/gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -19,13 +20,14 @@
         android:background="@color/half_tran"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_56">
+        android:layout_height="@dimen/height_48">
         <Button
+            android:layout_marginLeft="@dimen/padding_8"
             android:id="@+id/bt_pic"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:text="图片"
-            android:textSize="@dimen/size_18"
-            android:textColor="@android:color/white"
+            android:paddingLeft="@dimen/padding_8"
+            android:paddingRight="@dimen/padding_8"
+            android:textSize="@dimen/size_16"
+            android:textColor="@drawable/bg_press_trans"
             android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" />
