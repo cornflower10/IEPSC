@@ -57,6 +57,14 @@
         <item name="android:layout_height">0.5dp</item>
     </style>
 
+    <style name="line_margin">
+        <item name="android:layout_marginRight">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_vertical_margin</item>
+        <item name="android:background">@color/line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
     <style name="line_fill_h">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">match_parent</item>

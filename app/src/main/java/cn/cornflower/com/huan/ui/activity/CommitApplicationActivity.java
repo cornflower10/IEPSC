@@ -5,12 +5,9 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import butterknife.OnClick;
 import cn.cornflower.com.huan.R;
 import cn.cornflower.com.huan.view.ClearEditText;
 
@@ -21,12 +18,6 @@ public class CommitApplicationActivity extends BaseActivity {
     @InjectView(R.id.et_amount)
     ClearEditText etAmount;
 
-    @InjectView(R.id.tv_s)
-    TextView tvS;
-    @InjectView(R.id.tv_m)
-    TextView tvM;
-    @InjectView(R.id.tv_l)
-    TextView tvL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,48 +63,5 @@ public class CommitApplicationActivity extends BaseActivity {
 //        startActivity(intent);
 //        finish();
 //    }
-
-    int s,m,l;
-    @OnClick({R.id.iv_s_p, R.id.iv_s_n, R.id.iv_m_p, R.id.iv_m_n, R.id.iv_l_p, R.id.iv_l_n})
-    public void onClick(View view) {
-        switch (view.getId()) {
-
-            case R.id.iv_s_p:
-                s++ ;
-                break;
-            case R.id.iv_s_n:
-                if(s<=0){
-                  s=0;
-                }else{
-                    s--;
-                }
-
-                break;
-            case R.id.iv_m_p:
-                m++;
-                break;
-            case R.id.iv_m_n:
-                if(m<=0){
-                    m=0;
-                }else{
-                    m--;
-                }
-                break;
-            case R.id.iv_l_p:
-                l++;
-                break;
-            case R.id.iv_l_n:
-                if(l<=0){
-                    l = 0;
-                }else{
-                    l--;
-                }
-                break;
-
-        }
-        tvS.setText(String.valueOf(s));
-        tvM.setText(String.valueOf(m));
-        tvL.setText(String.valueOf(l));
-    }
 
 }

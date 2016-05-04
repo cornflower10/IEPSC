@@ -31,7 +31,10 @@
     <string name="about">关于</string>
     <string name="detail">详情</string>
     <string name="amount">桶数</string>
-    <string name="sales">营业额</string>
+    <string name="sales">营业额(元)</string>
+    <string name="small">小桶（桶数）</string>
+    <string name="mid">中捅（桶数）</string>
+    <string name="big">大桶（桶数）</string>
     <string name="add">添加</string>
     <string name="title_activity_commit_application">CommitApplicationActivity</string>
 

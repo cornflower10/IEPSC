@@ -33,7 +33,7 @@
             android:layout_height="48dp" />
         <View
             android:layout_alignParentBottom="true"
-            style="@style/line_margin_v"
+            style="@style/line_margin"
            />
     </RelativeLayout>
     <RelativeLayout
@@ -54,28 +54,22 @@
             android:layout_height="48dp" />
         <View
             android:layout_alignParentBottom="true"
-            style="@style/line_fill_v"
+            style="@style/line_margin"
             />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:background="@drawable/bg_press"
         android:id="@+id/rl_logout"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_56">
-        <View
-            android:layout_alignParentTop="true"
-            style="@style/line_fill_v"
-            />
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/size_16"
             android:gravity="center_vertical"
             android:layout_marginLeft="@dimen/activity_vertical_margin"
             android:text="退出登录"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="48dp" />
         <View

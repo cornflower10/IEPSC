@@ -15,152 +15,54 @@
 
     <include layout="@layout/phone_address" />
 
-    <RelativeLayout
-        style="@style/marginleft_right"
+    <android.support.design.widget.TextInputLayout
+        android:focusable="false"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="小桶"
-            android:textColor="@color/green"
-            android:textSize="@dimen/size_16" />
-        <ImageView
-            android:id="@+id/iv_s_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padding_8"
-            android:layout_toLeftOf="@+id/tv_s"
-            android:padding="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_neg_1_green_24dp" />
-        <TextView
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_toLeftOf="@+id/iv_s_p"
-            android:id="@+id/tv_s"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="0"
-            android:textSize="@dimen/size_16" />
-        <ImageView
-            android:id="@+id/iv_s_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/dp_4"
-            android:paddingBottom="@dimen/dp_4"
-            android:paddingTop="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_plus_1_green_24dp" />
-    </RelativeLayout>
-
-    <View
-        style="@style/line_margin_v"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
-
-    <RelativeLayout
-        style="@style/marginleft_right"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin">
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_small"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:hint="@string/small"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textSize="@dimen/size_16"
+            app:isShowClear="false" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:focusable="false"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="中桶"
-            android:textColor="@color/green"
-            android:textSize="@dimen/size_16" />
-        <ImageView
-            android:id="@+id/iv_m_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padding_8"
-            android:layout_toLeftOf="@+id/tv_m"
-            android:padding="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_neg_1_green_24dp" />
-
-        <TextView
-            style="@style/marginleft_right"
-            android:id="@+id/tv_m"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/iv_m_p"
-            android:layout_centerVertical="true"
-            android:text="0"
-            android:textSize="@dimen/size_16" />
-        <ImageView
-            android:id="@+id/iv_m_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/dp_4"
-            android:paddingBottom="@dimen/dp_4"
-            android:paddingTop="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_plus_1_green_24dp" />
-
-    </RelativeLayout>
-
-    <View
-        style="@style/line_margin_v"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
-
-    <RelativeLayout
-        style="@style/marginleft_right"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin">
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_mid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:hint="@string/mid"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textSize="@dimen/size_16"
+            app:isShowClear="false" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:focusable="false"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="大桶"
-            android:textColor="@color/green"
-            android:textSize="@dimen/size_16" />
-        <ImageView
-            android:id="@+id/iv_l_n"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padding_8"
-            android:layout_toLeftOf="@+id/tv_l"
-            android:padding="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_neg_1_green_24dp" />
-        <TextView
-            style="@style/marginleft_right"
-            android:id="@+id/tv_l"
-            android:layout_toLeftOf="@+id/iv_l_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="0"
-            android:textSize="@dimen/size_16" />
-
-        <ImageView
-            android:id="@+id/iv_l_p"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/dp_4"
-            android:paddingBottom="@dimen/dp_4"
-            android:paddingTop="@dimen/dp_4"
-            android:src="@drawable/ic_exposure_plus_1_green_24dp" />
-
-
-    </RelativeLayout>
-
-    <View
-        style="@style/line_margin_v"
-        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin">
+        <cn.cornflower.com.huan.view.ClearEditText
+            android:id="@+id/et_big"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_56"
+            android:hint="@string/big"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textSize="@dimen/size_16"
+            app:isShowClear="false" />
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:focusable="false"
