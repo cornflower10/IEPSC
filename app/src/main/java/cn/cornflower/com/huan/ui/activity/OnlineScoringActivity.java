@@ -16,7 +16,6 @@ public class OnlineScoringActivity extends BaseActivity {
 
     @InjectView(R.id.bt_choose)
     Button btChoose;
-    @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
     @Override
@@ -36,7 +35,6 @@ public class OnlineScoringActivity extends BaseActivity {
 
     private void setToolbar() {
         toolbar.setTitle(getResources().getString(R.string.task_my));
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

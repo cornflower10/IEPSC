@@ -63,7 +63,7 @@
             android:name=".ui.activity.SendTaskActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.EditTaskAndPeopleActivity"
+            android:name=".ui.activity.TaskListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.activity.ChooseImageActivity"
             android:theme="@style/AppTheme.NoActionBar"
